@@ -1,0 +1,271 @@
+/* ==================== */
+/* 自定义样式 - 改进版 */
+/* ==================== */
+
+/* 1. 移除顶部图片遮罩层 */
+body #page-header:not(.not-top-img)::before,
+.article-container .post-bg::before {
+    background-color: transparent;
+    opacity: 0;
+}
+
+/* 2. 文章正文使用楷体（精确控制） */
+.post-content {
+    font-size: 1.0625rem; /* 17px，相对单位 */
+    line-height: 1.8;
+}
+
+.post-content > p,
+.post-content > div:not([class*="code"]):not([class*="highlight"]),
+.post-content > ul:not([class*="code"]),
+.post-content > ol:not([class*="code"]),
+.post-content > blockquote:not([class*="code"]) {
+    font-family: "KaiTi", "STKaiti", "Noto Serif CJK SC", serif;
+}
+
+/* 确保代码块不被影响 */
+.post-content pre,
+.post-content code,
+.post-content [class*="language-"],
+.post-content .highlight,
+.post-content .gist {
+    font-family: Consolas, "Courier New", monospace !important;
+    font-size: 0.875em !important;
+}
+
+/* 3. 文章过期提醒样式（增强兼容性） */
+.notice-outdate {
+    position: relative;
+    border: 1px solid #ffcc80;
+    padding: 16px 16px 16px 48px;
+    margin: 20px 0;
+    border-radius: 8px;
+    color: #e65100;
+    
+    /* 渐变背景（带回退） */
+    background-color: #fff8e6;
+    background: -webkit-linear-gradient(135deg, #fff8e6 0%, #fff3e0 100%);
+    background: linear-gradient(135deg, #fff8e6 0%, #fff3e0 100%);
+    
+    box-shadow: 0 2px 8px rgba(255, 152, 0, 0.1);
+}
+
+.notice-outdate::before {
+    content: "⚠️";
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+}
+
+.notice-outdate .close-btn {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    background: transparent;
+    border: none;
+    font-size: 1.125rem;
+    color: #999;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    padding: 0;
+    line-height: 1;
+}
+
+.notice-outdate .close-btn:hover,
+.notice-outdate .close-btn:focus {
+    color: #e65100;
+    background: rgba(230, 81, 0, 0.1);
+    outline: none;
+}
+
+/* 移动端适配 */
+@media screen and (max-width: 768px) {
+    .notice-outdate {
+        padding: 12px 12px 12px 40px;
+        margin: 16px 0;
+    }
+    
+    .notice-outdate::before {
+        left: 12px;
+        font-size: 1.125rem;
+    }
+    
+    .post-content {
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+}
+
+/* 优雅圆角版本 */
+.recent-post-item {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+.recent-post-item:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.post-list .post-cover,
+.post_cover {
+  border-radius: 12px 12px 0 0 !important;
+}
+
+/* 左右布局的圆角调整 */
+#recent-posts > .recent-post-item:nth-child(odd) .post_cover {
+  border-radius: 12px 0 0 12px !important;
+}
+
+#recent-posts > .recent-post-item:nth-child(even) .post_cover {
+  border-radius: 0 12px 12px 0 !important;
+}
+
+@media (max-width: 992px) {
+  #recent-posts > .recent-post-item .post_cover {
+    border-radius: 12px 12px 0 0 !important;
+  }
+}
+
+/* 轻度透明 - 文字清晰，略带背景 */
+.recent-post-item {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border: 1px solid rgba(255, 255, 255, 0.75) !important;
+  border-radius: 12px !important;
+  padding: 18px !important;
+  margin-bottom: 18px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+.recent-post-item .content {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: rgba(0, 0, 0, 0.85) !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+  margin-top: 12px !important;
+}
+
+/* 只需添加这三行到你的CSS中 */
+[data-theme="dark"] .recent-post-item {
+  background: rgba(30, 30, 30, 0.75) !important;
+  border: 1px solid rgba(60, 60, 60, 0.75) !important;
+}
+
+[data-theme="dark"] .recent-post-item .content {
+  background: rgba(40, 40, 40, 0.15) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* 强制修改文章页头图为背景图 */
+.post-bg#page-header {
+  background-image: url('/img/home-bg.jpg') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+
+
+/* =============================== */
+/* 侧边栏卡片半透明样式 - 简化版     */
+/* =============================== */
+
+/* 基础选择器：只针对原始的这几个卡片 */
+#aside-content .card-widget {
+  /* 背景改为半透明白色 */
+  background: rgba(255, 255, 255, 0.75) !important;
+  /* 25%不透明度 = 高度透明，与背景融合 */
+  
+  /* 添加细边框增强卡片边界 */
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  /* 白色30%不透明边框 */
+  
+  /* 圆角效果 */
+  border-radius: 8px !important;
+  
+  /* 内边距保持不变 */
+  padding: 20px !important;
+  
+  /* 盒子阴影保持原样 */
+  -webkit-box-shadow: var(--card-box-shadow) !important;
+  box-shadow: var(--card-box-shadow) !important;
+  
+  /* 过渡效果保持原样 */
+  -webkit-transition: all 0.3s !important;
+  -moz-transition: all 0.3s !important;
+  -o-transition: all 0.3s !important;
+  -ms-transition: all 0.3s !important;
+  transition: all 0.3s !important;
+}
+
+/* 深色模式适配 */
+[data-theme="dark"] #aside-content .card-widget {
+  /* 深色模式下用深灰色半透明 */
+  background: rgba(30, 30, 30, 0.25) !important;
+  
+  /* 深色模式边框 */
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* 悬停效果 */
+#aside-content .card-widget:hover {
+  /* 悬停时增加不透明度 */
+  background: rgba(255, 255, 255, 0.35) !important;
+  
+  /* 轻微上浮效果 */
+  transform: translateY(-2px) !important;
+  
+  /* 悬停时阴影增强 */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* 深色模式悬停效果 */
+[data-theme="dark"] #aside-content .card-widget:hover {
+  background: rgba(40, 40, 40, 0.35) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* =============================== */
+/* 可选：单独调整特定卡片透明度      */
+/* =============================== */
+
+/* 个人信息卡片（可以单独设置不同透明度） */
+#aside-content #card-info {
+  background: rgba(255, 255, 255, 0.3) !important; /* 稍不透明 */
+}
+
+/* 最新文章卡片 */
+#aside-content #recent-posts {
+  background: rgba(255, 255, 255, 0.2) !important; /* 更透明 */
+}
+
+/* 分类卡片 */
+#aside-content #card-categories {
+  background: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* 标签云卡片 */
+#aside-content #card-tags {
+  background: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* 归档卡片 */
+#aside-content #card-archives {
+  background: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* 其他小工具卡片 */
+#aside-content #card-webinfo,
+#aside-content #card-calendar,
+#aside-content #card-history {
+  background: rgba(255, 255, 255, 0.25) !important;
+}
