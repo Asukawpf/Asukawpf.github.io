@@ -1,0 +1,47 @@
+const clockHTML = `
+  <div id="custom-clock" class="card-widget">
+    <div class="card-clock">
+      <!-- 顶部渐变装饰条 -->
+      <div class="clock-top-bar"></div>
+      
+      <!-- 时钟内容 -->
+      <div class="clock-content">
+        <!-- 第一行：日期和天气 -->
+        <div class="clock-row-top">
+          <span class="clock-date" id="cDate">2026-02-14 FRI</span>
+          <div class="clock-weather-group">
+            <div class="clock-weather">
+              <i class="qi-100-fill"></i>
+              <span class="clock-temp">37°C</span>
+            </div>
+            <div class="clock-humidity">
+              <span>💧</span> 39%
+            </div>
+          </div>
+        </div>
+        
+        <!-- 第二行：时间 -->
+        <div class="clock-row-time">
+          <span class="clock-time" id="cTime">17:34:01</span>
+        </div>
+        
+        <!-- 第三行：风向、地点、空气质量 -->
+        <div class="clock-row-bottom">
+          <div class="clock-wind">
+            <span>🌪️</span> 西南风
+          </div>
+          <div class="clock-location">
+            <span>📍</span> 湘潭市
+          </div>
+          <div class="clock-air">
+            <span class="clock-air-label">PM2.5</span>
+            <span class="clock-air-value">89</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 底部光效 -->
+      <div class="clock-bottom-glow"></div>
+    </div>
+  </div>
+`;
